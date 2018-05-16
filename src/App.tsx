@@ -19,7 +19,9 @@ export default class App extends React.Component<{},{}>{
   
 
     public deletePersonHandler=(PersonIndex:any)=>{    
-      const persons = this.state.persons;
+        /*const persons = this.state.persons; this approach is not suggested due to unpredictability */   
+        /*const persons =this.state.persons.slice(); this creates  a copy of the array*/
+      const persons = [...this.state.persons]
       persons.splice(PersonIndex,1);  
       this.setState({persons});    
     }
